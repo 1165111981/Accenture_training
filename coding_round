@@ -139,3 +139,39 @@ for char in s:
 print(res)
 
 ------------------------------------------------------------------------------------------------------
+Q7] In a supermarket every product have a barcode with alphanumeric code. 
+# Consecutive numbers in the code is considered as one multi-digit number. 
+# The price of the product is sum of the numbers in the code.
+# Write a program to find the price of the given product
+# Input: 12axy44
+# output: 56
+# Input: 24ab7hg27
+# Output: 58
+# Input barcode
+s=input("Enter the String: ")
+res=0
+current=""
+for char in s:
+    if char.isdigit():
+        current+= char
+    else:
+        if current:
+            res+=int(current)
+            current=""
+if current:
+    res+= int(current)
+print(res)
+
+        OR
+
+s=input()
+num=0; res=0
+for i in s:
+    if i.isdigit():
+        num=num*10+int(i)
+    else:
+        res+=num
+        num=0
+res+=num
+print(res)
+---------------------------------------------------------------------------------------------------
