@@ -90,8 +90,8 @@ print(sum)
 ------------------------------------------------------------------------------------------------------------------------------------
 
 # Q5].If A=0, B=1, C=A+B,D=B+C,E=C+D and so on till Z.
-# If a string(with only alphabets) is given as input. Find the sum of the individual character values based
-# on above series.
+# If a string(with only alphabets) is given as input. 
+#Find the sum of the individual character values based on above series.
 # Note: Both upper and lower case character should give same result.
 # Input: MAN
 # output: 377
@@ -106,3 +106,36 @@ for char in input_string:
     index = ord(char) - ord('A')
     total_sum += series_values[index]
 print(total_sum)
+                OR
+def fib(n):
+    if n==1:
+        return 0
+    elif n==2:
+        return 1
+    else:
+        return fib(n-1)+fib(n-2)
+s=input();sum=0
+for i in s.lower():
+    val=fib(ord(i)-96)
+    sum+=val
+print(sum)
+
+-----------------------------------------------------------------------------------------------------
+
+Q6. In a supermarket every product have a barcode with alphanumeric code.
+The price of each item is product of each digits in the code.
+    Write a program to
+find the price of the given item.
+Input:4ac52
+Input: 2xy5r8
+output: 40
+output: 80
+CODE:
+s=input("Enter the string: ")
+res=1
+for char in s:
+    if char.isdigit():
+        res*= int(char)
+print(res)
+
+------------------------------------------------------------------------------------------------------
