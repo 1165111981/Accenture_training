@@ -1,0 +1,108 @@
+1] Give the occurences of each character in a given string string without repitition of same character.
+CODE:
+s = input("enter your string: ")
+result = ""
+for char in s:
+    if char not in result:
+        count = s.count(char)
+        result += f"{char}:{count}\n"
+print(result.strip())
+      OR
+s=input(); d={}
+for i in s:
+  d[i]=s.count(i)
+for i in d:
+  print(i,' : ',d[i])
+
+----------------------------------------------------------------------------------------------
+
+# 2] Given a input string, you have to encrypt the string in such a way that 'a' becomes 'z', 'z' becomes 'a' and accordingly. 
+Note: All the characters in the given string are in lowercase
+# Input Format : A lowercase String
+# Output Format: Encrypted lowercase string.
+# [abcdefghijklmnopqrstuvwxyz
+# zyxwvutsrqponmlk jihgfedcba]
+# Ex: Input: abcd
+# Output: zyxw
+# Input string
+CODE:
+s = input("enter the string: ")
+enc_str = ""
+for char in s:
+    enc_char = chr(219- ord(char))
+    enc_str += enc_char
+print(enc_str)
+              or
+# str=input("Enter the string")
+# res=''
+# for i in str.lower():
+#     res+=chr(ord('a')+ord('z')-ord(i))
+# print(res)
+-----------------------------------------------------------------------------------------------
+
+# 3]
+# A high profile secret agency wants to handle all messages send and receive in ciphers. They need to build a program software where every mail sent
+or received will be encrypted using some secr One of the formats can be as follows: a -> f, b ->g, c->h ....u ->z, v->a, w->b, x->c,y->d, z->e.
+# Note: input string only have lower case alphabets.
+# Input: word
+# output: btwi
+# Input string
+s = input("Enter the String:")
+enc_str = ""
+for char in s:
+    new_char = ord(char) + 5
+    if new_char > ord('z'):
+        new_char = new_char - 26
+    enc_char = chr(new_char)
+    enc_str += enc_char
+print(enc_str)
+         OR
+s=input("Enter the word: word")
+res=''
+for i in s:
+    if (ord(i)<ord('v')):
+        res+=chr(ord(i)+5)
+    else:
+        res+=chr(ord(i)+5-26)
+print(res)
+---------------------------------------------------------------------------------------------------------
+
+# Q4]
+# Given is a string. The task is to given the sum of values of each character according to the position of 
+# the character in the alphabetical order.
+# Ex: a is 1st term so a=1, b is 2nd term so b=2 and so on
+# Input: abcd
+# Output: 10
+# Input: Man
+# Output: 28
+s=input("enter the word: ")
+s=s.lower()
+totalsum=0
+for char in s:
+    pos=ord(char)-ord('a') + 1
+    totalsum+=pos
+print(totalsum)
+           OR
+s=input();sum=0
+for i in s.lower():
+    sum+=ord(i)-96
+print(sum)
+------------------------------------------------------------------------------------------------------------------------------------
+
+# Q5].If A=0, B=1, C=A+B,D=B+C,E=C+D and so on till Z.
+# If a string(with only alphabets) is given as input. Find the sum of the individual character values based
+# on above series.
+# Note: Both upper and lower case character should give same result.
+# Input: MAN
+# output: 377
+series_values = [0, 1]
+for i in range(2, 26):
+    next_value = series_values[i - 1] + series_values[i - 2]
+    series_values.append(next_value)
+input_string = "MAN"
+input_string = input_string.upper()
+total_sum = 0
+for char in input_string:
+    index = ord(char) - ord('A')
+    total_sum += series_values[index]
+print(total_sum)
